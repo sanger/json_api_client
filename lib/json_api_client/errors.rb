@@ -97,6 +97,15 @@ module JsonApiClient
     class ServiceUnavailable < ServerError
     end
 
+    class Gone < ServerError
+      def message
+        "Resource gone"
+      end
+    end
+
+    class InternalServerError < ServerError
+    end
+
     class GatewayTimeout < ServerError
     end
 

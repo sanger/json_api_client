@@ -117,6 +117,15 @@ class ErrorsTest < Minitest::Test
     end
   end
 
+  def test_gone
+    stub_request(:get, "http://example.com/users")
+      .to_return(headers: {content_type: "text/plain"}, status: 410, body: "gone")
+
+    assert_raises JsonApiClient::Errors::Gone do
+      User.all
+    end
+  end
+
   def test_request_timeout
     stub_request(:get, "http://example.com/users")
       .to_return(headers: {content_type: "text/plain"}, status: 408, body: "request timeout")

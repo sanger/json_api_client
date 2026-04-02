@@ -103,7 +103,7 @@ module CrossNamespaceOne
   end
 end
 
-class AssociationTest < Minitest::Test
+class AssociationTest < MiniTest::Test
   def test_default_properties_no_changes
     stub_request(:post, 'http://example.com/accounts').
         with(headers: { content_type: 'application/vnd.api+json', accept: 'application/vnd.api+json' }, body: {
@@ -381,8 +381,12 @@ class AssociationTest < Minitest::Test
         ]
       }.to_json)
     owner = Owner.find(1).first
-    properties = owner.properties
-    assert_equal(Array, properties.class)
+    properties_query_builder = owner.properties
+    properties = properties_query_builder.to_a
+    assert_equal(JsonApiClient::Query::Builder, properties_query_builder.class)
+    assert_equal(Property, properties_query_builder.klass)
+    assert_equal(JsonApiClient::Query::Requestor, properties_query_builder.requestor.class)
+    assert_equal(JsonApiClient::ResultSet, properties.class)
     assert_equal("314 150th Ave", properties.last.address)
   end
 

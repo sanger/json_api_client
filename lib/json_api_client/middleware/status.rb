@@ -42,6 +42,8 @@ module JsonApiClient
           raise Errors::RequestTimeout, env
         when 409
           raise Errors::Conflict, env
+        when 410
+          raise Errors::Gone, env
         when 422
           # Allow to proceed as resource errors will be populated
         when 429

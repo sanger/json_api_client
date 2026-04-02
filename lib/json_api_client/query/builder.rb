@@ -4,7 +4,7 @@ module JsonApiClient
   module Query
     class Builder
 
-      attr_reader :klass
+      attr_reader :klass, :requestor
       delegate :key_formatter, to: :klass
 
       def initialize(klass, opts = {})
@@ -17,6 +17,7 @@ module JsonApiClient
         @includes          = opts.fetch( :includes, [] )
         @orders            = opts.fetch( :orders, [] )
         @fields            = opts.fetch( :fields, [] )
+        @requestor         = opts.fetch( :requestor, @klass.requestor )
       end
 
       def where(conditions = {})
@@ -126,7 +127,7 @@ module JsonApiClient
       protected
 
       def _fetch
-        klass.requestor.get(params)
+        requestor.get(params)
       end
 
       private
@@ -140,7 +141,9 @@ module JsonApiClient
              filters:           @filters.merge( opts.fetch( :filters, {} ) ),
              includes:          @includes + opts.fetch( :includes, [] ),
              orders:            @orders + opts.fetch( :orders, [] ),
-             fields:            @fields + opts.fetch( :fields, [] ) )
+             fields:            @fields + opts.fetch( :fields, [] ),
+             requestor:         @requestor
+            )
       end
 
       def path_params
