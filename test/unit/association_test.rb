@@ -103,7 +103,7 @@ module CrossNamespaceOne
   end
 end
 
-class AssociationTest < MiniTest::Test
+class AssociationTest < Minitest::Test
   def test_default_properties_no_changes
     stub_request(:post, 'http://example.com/accounts').
         with(headers: { content_type: 'application/vnd.api+json', accept: 'application/vnd.api+json' }, body: {
@@ -1132,7 +1132,7 @@ class AssociationTest < MiniTest::Test
               }
             ]
         }.to_json)
-    
+
     records = CrossNamespaceOne::Hammer.includes(:nails).to_a
 
     assert_equal(2, records.size)
