@@ -2,6 +2,23 @@
 
 ## Unreleased
 
+## 1.23.0
+
+- [#412](https://github.com/JsonApiClient/json_api_client/pull/412)
+  - Add support for faraday 2.x
+  - Drop support for Ruby < 3.0 (EOL)
+  - Drop support for activesupport < 6.0 (EOL)
+  - Remove deprecated faraday_middleware and add faraday-gzip (from [#402](https://github.com/JsonApiClient/json_api_client/pull/402))
+- [#400](https://github.com/JsonApiClient/json_api_client/pull/400) - Fix for multi-word custom endpoint and route format
+
+## 1.22.0
+- [#403](https://github.com/JsonApiClient/json_api_client/pull/403) - Feature: Use the association options to lookup relationship class
+- [#406](https://github.com/JsonApiClient/json_api_client/pull/406) - Deep-merge nested `additional_params`
+
+## 1.21.1
+- [#404](https://github.com/JsonApiClient/json_api_client/pull/404) - Expose NotFound json errors
+- [#378](https://github.com/JsonApiClient/json_api_client/pull/378) - Add the ability to create a subclass of JsonApiClient::Resource to have a modified id method
+
 ## 1.21.0
 - [#395](https://github.com/JsonApiClient/json_api_client/pull/395) - relaxing faraday dependency to anything less than 2.0
 
