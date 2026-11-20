@@ -1,3 +1,3 @@
 module JsonApiClient
-  VERSION = "1.23.0-sanger.1"
+  VERSION = "1.23.0-sanger.2"
 end
