@@ -8,8 +8,4 @@ gem "faraday", "~> 1.10"
 gem "faraday-gzip", "~> 1.0"
 gem "concurrent-ruby", "1.3.4"
 
-group :test do
-  gem "codeclimate-test-reporter", require: nil
-end
-
 gemspec path: "../"
