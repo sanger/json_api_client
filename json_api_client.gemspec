@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.add_dependency "activemodel", '>= 6.0.0'
 
   s.add_dependency "faraday", '>= 1.10', '< 3.0'
-  s.add_dependency "faraday-gzip", '>= 1.0', '< 3.0'
+  s.add_dependency "faraday-gzip", '>= 1.0', '< 4.0'
 
   s.add_dependency "rack", '>= 0.2'
 
@@ -24,7 +24,11 @@ Gem::Specification.new do |s|
   s.add_development_dependency "mocha"
   s.add_development_dependency "appraisal"
   s.add_development_dependency "base64"
+  s.add_development_dependency "benchmark"
   s.add_development_dependency "mutex_m"
+  s.add_development_dependency "rdoc"
+  s.add_development_dependency "simplecov", "~> 0.22"
+  s.add_development_dependency "json", '>= 2.0', '< 3.0'
 
   s.license = "MIT"
 
